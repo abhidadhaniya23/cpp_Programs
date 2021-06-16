@@ -22,6 +22,7 @@ int countNotes(int rupees) {
 
     for (int i = 0; i < arrLength; i++) {
         temp_counter_arr[i] = rupees / arr[i];
+        cout<< temp_counter_arr[i]<<endl;
         // cout << rupees << " / " << arr[i] << " is equal to : " << temp_counter_arr[i] << endl;
     }
     for (int i = 0; i < arrLength; i++) {
@@ -29,7 +30,14 @@ int countNotes(int rupees) {
             counterArr[i] = temp_counter_arr[i];
         }
         else {
+            cout << "rupees : " << (temp_counter_arr[i - 1] * arr[i - 1]) << endl;
+            cout << "temp_counter_arr[" << i << " - 1] : " << temp_counter_arr[i - 1] << endl;
+            cout << "arr[" << i << " - 1] : " << arr[i - 1] << endl;
+            cout << "rupees - (temp_counter_arr[" << i << " - 1] * arr[" << i << " - 1])" << rupees - (temp_counter_arr[i - 1] * arr[i - 1]) << endl;
+            // cout<<"Rupees :" << rupees << endl << temp_counter_arr[i - 1] << endl << arr[i - 1] << endl << rupees - (temp_counter_arr[i - 1] * arr[i - 1]) << endl;
             counterArr[i] = (rupees - (temp_counter_arr[i - 1] * arr[i - 1])) / arr[i];
+            // counterArr[i] = ((rupees - (temp_counter_arr[i - 1] * arr[i - 1])) - (temp_counter_arr[i - 1] * arr[i - 1])) / arr[i];
+            cout << endl;
         }
     }
     for (int i = 0; i < arrLength; i++) {
