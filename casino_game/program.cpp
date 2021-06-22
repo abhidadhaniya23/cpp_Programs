@@ -35,7 +35,7 @@ int main(void) {
                 gameLogic();
             }
             else if (playAgain == "n" || playAgain == "N") {
-                cout << "Thank you so much for playing this game !" << endl;
+                cout << "Thank you so much for playing this game !\n" << endl;
                 break;
             }
             else {
@@ -77,7 +77,7 @@ int gameLogic() {
     srand(time(0));
     // limit = 1 => 100
     int randomNumber = (rand() % 100) + 1;
-    cout << "Random No is : " << randomNumber << endl;
+    // cout << "Random No is : " << randomNumber << endl;
     int userChoice;
     cout << "\nHey " << userName << "! Guess a number : ";
     cin >> userChoice;
