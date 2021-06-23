@@ -3,7 +3,7 @@
 #include <ctime>
 using namespace std;
 
-// function definations
+// function definitions
 void getRules();
 int getAmountData();
 int gameLogic();
@@ -16,9 +16,9 @@ int betAmount = 0;
 
 // main function
 int main(void) {
-    // call that getRules defined function
+    // call getRules defined function
     getRules();
-    // variable defining
+    // defining variable 
     cout << "\nPlease enter your name : ";
     cin >> userName;
     do {
@@ -35,11 +35,11 @@ int main(void) {
                 gameLogic();
             }
             else if (playAgain == "n" || playAgain == "N") {
-                cout << "Thank you so much for playing this game !\n" << endl;
+                cout << "Thank you for playing this game !\n" << endl;
                 break;
             }
             else {
-                cout << "Please enter proper characters..." << endl;
+                cout << "Please enter proper characters." << endl;
                 cout << "\nDO you want to play again ? (y/n) : ";
                 cin >> playAgain;
             }
@@ -51,9 +51,9 @@ int main(void) {
 
 // function for amount data about total howmany $ have user... and it's all about... 
 int getAmountData() {
-    cout << "\nHowmany $ have you ? : $";
+    cout << "\nEnter your balance : $";
     cin >> totalAmount;
-    cout << "You have total " << totalAmount << "$" << endl;
+    cout << "Your total balance is: " << totalAmount << "$" << endl;
     return 0;
 }
 
@@ -62,11 +62,11 @@ int gameLogic() {
     int betAmountScope;
     do {
         if (totalAmount < betAmountScope) {
-            cout << "Please enter bet amount lessthan than total amount... : $";
+            cout << "Your betting amount should be less than your balance, please bid again: $";
             cin >> betAmountScope;
         }
         else {
-            cout << "Please enter your bet amount : $";
+            cout << "Please enter your bid amount : $";
             cin >> betAmountScope;
         }
     } while (totalAmount < betAmountScope);
@@ -103,7 +103,7 @@ int gameLogic() {
             cin >> userChoice;
         }
         if (betAmount <= 1) {
-            cout << "Oops! you loss the game...! your bet amount finished (your chances finished...!)" << endl;
+            cout << "Oops! You lost the game...! Your betting amount finished (your chances finished...!)" << endl;
             totalAmount -= betAmountScope;
             cout << "Now, Your total balance is : " << totalAmount << "$" << endl;
             break;
@@ -111,7 +111,7 @@ int gameLogic() {
     } while (userChoice != randomNumber);
     if (userChoice == randomNumber) {
         cout << "Congratulations...! You won " << userName << " !" << endl;
-        totalAmount = betAmount * 20;
+        totalAmount += betAmount * 20;
         cout << "Now, Your total balance is : " << totalAmount << "$" << endl;
     }
     return 0;
@@ -128,10 +128,10 @@ void getRules() {
     cout << "\n\t * CASINO NUMBER GUESSING RULES! * \n";
     cout << endl;
     cout << "\t1. Choose a number between 1 to 100\n";
-    cout << "\t2. Winner gets 20 times of the money bet\n";
-    cout << "\t3. Wrong choice, and you lose 1$ amount you bet\n";
-    cout << "\t4. Wrong choice till end the game, you loss bet amount from total amount\n";
-    cout << "\t5. You have chances to guess right number till your bet amount\n";
+    cout << "\t2. Winner gets 20 times of the bid money\n";
+    cout << "\t3. Wrong choice, and you lose 1$ per wrong guess of the amount you bet\n";
+    cout << "\t4. Wrong choice till end the game, you loss bid amount from total balance\n";
+    cout << "\t5. Number of chance to guess the number is equal to the bidding amount.\n";
     cout << "\t==> To quit the game anytime, press ctrl+c\n";
     cout << "\n\t= = = = = = = = = = = = = = = = = = = = = = = =\n";
     cout << endl;
