@@ -24,15 +24,17 @@ int main(void) {
     cin >> userName;
     // do-while loop for run game while balance finished...
     do {
+        // set this condition for do this only first time... when program run...
         if (totalAmount == 0) {
             getAmountData();
             gameLogic();
         }
         else {
-            // variable playAgain to check user want to play again or not ??
+            // (string) playAgain to check user want to play again or not ??
             string playAgain;
             cout << "\nDO you want to play again ? (y/n) : ";
             cin >> playAgain;
+            // set condition for if user have not any balance then exit from loop...
             if (totalAmount > 0) {
 
                 if (playAgain == "y" || playAgain == "Y") {
@@ -75,7 +77,7 @@ int getAmountData() {
 // building game logic function
 int gameLogic() {
     // declaring this variable to define howmany bid user betting...!
-    int betAmountScope = totalAmount;
+    int betAmountScope = totalAmount - 10;
 
     // int chances = 0;
     int decreasingAmount;
@@ -90,18 +92,18 @@ int gameLogic() {
             cout << "\nPlease enter your bid amount (In *10) : $";
             cin >> betAmountScope;
             if (betAmountScope % 10 == 0) {
-                break;
+                // break;
             }
             // terminating loop while user not enter bid amount in multilpicating of 10...
-            do {
+            while (betAmountScope % 10 != 0) {
                 cout << "Please enter correct bid amount by required...!" << endl;
                 cout << "\nPlease enter your bid amount (In *10) : $";
                 cin >> betAmountScope;
                 // totalAmount -= betAmountScope;
                 cout << "\nYour total balance is : " << totalAmount << "$" << endl;
-            } while (betAmountScope % 10 != 0);
+            };
         }
-    } while (totalAmount < betAmountScope);
+    } while (totalAmount < betAmountScope && betAmountScope % 10 != 0);
     cout << "you bet " << betAmountScope << "$" << endl;
     // decrease betting amount from total balance...
     totalAmount -= betAmountScope;
