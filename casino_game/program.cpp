@@ -181,7 +181,7 @@ void getRules() {
     // about game...
     if (totalAmount == 0) {
         // command to clear terminal...
-        system("cls");
+        // system("cls");
     }
     cout << "\n\t= = = = = = = = = = = = = = = = = = = = = = = =\n";
     cout << "\n\t * CASINO NUMBER GUESSING RULES! * \n";
