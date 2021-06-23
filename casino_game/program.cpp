@@ -83,27 +83,23 @@ int gameLogic() {
     int decreasingAmount;
     // terminating this loop (do-while) if user entered bid amount greter than total balance...
     do {
-        // if user entered bid amount greter than total balance then...
-        if (totalAmount < betAmountScope) {
-            cout << "Your betting amount should be less than your balance, please bid again: $";
-            cin >> betAmountScope;
-        }
-        else {
+        // running this loop while user enter bet amount less than or equal to total amount
+        do {
+            if (totalAmount < betAmountScope) {
+                cout << "\nYour betting amount should be less than your balance, please bid again: $";
+                cin >> betAmountScope;
+            }
+        } while (totalAmount < betAmountScope);
+        // running this loop while user enter bet amount in multiplication by 10...
+        do {
+            if (betAmountScope % 10 != 0) {
+                cout << "Please enter correct bid amount by required (multiplication by 10)...!" << endl;
+            }
             cout << "\nPlease enter your bid amount (In *10) : $";
             cin >> betAmountScope;
-            if (betAmountScope % 10 == 0) {
-                // break;
-            }
-            // terminating loop while user not enter bid amount in multilpicating of 10...
-            while (betAmountScope % 10 != 0) {
-                cout << "Please enter correct bid amount by required...!" << endl;
-                cout << "\nPlease enter your bid amount (In *10) : $";
-                cin >> betAmountScope;
-                // totalAmount -= betAmountScope;
-                cout << "\nYour total balance is : " << totalAmount << "$" << endl;
-            };
-        }
-    } while (totalAmount < betAmountScope && betAmountScope % 10 != 0);
+        } while (betAmountScope % 10 != 0);
+
+    } while (totalAmount < betAmountScope || betAmountScope % 10 != 0);
     cout << "you bet " << betAmountScope << "$" << endl;
     // decrease betting amount from total balance...
     totalAmount -= betAmountScope;
