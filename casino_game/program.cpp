@@ -68,6 +68,9 @@ int getAmountData() {
 int gameLogic() {
     // declaring this variable to define howmany bid user betting...!
     int betAmountScope;
+
+    // int chances = 0;
+    int decreasingAmount;
     // terminating this loop (do-while) if user entered bid amount greter than total balance...
     do {
         // if user entered bid amount greter than total balance then...
@@ -76,13 +79,15 @@ int gameLogic() {
             cin >> betAmountScope;
         }
         else {
-            cout << "\nPlease enter your bid amount : $";
+            cout << "\nPlease enter your bid amount (In *10) : $";
             cin >> betAmountScope;
         }
     } while (totalAmount < betAmountScope);
     cout << "you bet " << betAmountScope << "$" << endl;
     // I already defined betAmount in global scop but its decreasing if guess wrong then how could we know howmany bid user bitting ? so,...
     betAmount = betAmountScope;
+
+    decreasingAmount = (betAmountScope / 10);
 
     // generating random number
     srand(time(0));
@@ -105,7 +110,8 @@ int gameLogic() {
                 cout << "good! you are too close please try to guess the correct number...!" << endl;
             }
             // if user guess wrong number then cut 1$ from bitting amount...
-            betAmount -= 1;
+            betAmount -= decreasingAmount;
+            // betAmount -= 1;
             cout << "Now your bet amount is : $" << betAmount << endl;
             cout << "Please guess lower number...!" << endl;
             cout << "\nguess again : ";
@@ -117,7 +123,8 @@ int gameLogic() {
             if (randomNumber - userChoice < 10) {
                 cout << "good! you are too close please try to guess the correct number...!" << endl;
             }
-            betAmount -= 1;
+            betAmount -= decreasingAmount;
+            // betAmount -= 1;
             cout << "Now your bet amount is : $" << betAmount << endl;
             cout << "Please guess higher number..!" << endl;
             cout << "\nguess again : ";
