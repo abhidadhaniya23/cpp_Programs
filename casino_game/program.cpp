@@ -180,11 +180,11 @@ int gameLogic() {
 // function to show rules to user
 void getRules() {
     // about game...
-    // i commentout this code because its not work for some terminals
-    /*if (totalAmount == 0) {
+    if (totalAmount == 0) {
         // command to clear terminal...
-        // system("cls");
-    }*/
+        system("cls");
+        // its not work for some online terminals
+    }
     cout << "\n\t= = = = = = = = = = = = = = = = = = = = = = = =\n";
     cout << "\n\t * CASINO NUMBER GUESSING RULES! * \n";
     cout << endl;
